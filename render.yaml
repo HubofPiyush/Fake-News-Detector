@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: fake-news-detector
+    runtime: python
+    buildCommand: pip install -r requirement.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /

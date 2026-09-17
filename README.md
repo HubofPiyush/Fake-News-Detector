@@ -34,6 +34,13 @@ This project is designed to classify news articles as **fake** or **real** using
 
 ## 🚀 How to Run the Project
 
+### Deploy online with Render
+
+1. Open [Render](https://render.com/) and sign in with GitHub.
+2. Choose **New +** → **Blueprint** and select this repository.
+3. Render will read `render.yaml`, install the requirements, and start the Flask website.
+4. Open the generated `https://fake-news-detector.onrender.com` URL.
+
 ### 1. Clone the Repository
 ```bash/Terminal
 git clone https://github.com/your-username/fake-news-detector.git
