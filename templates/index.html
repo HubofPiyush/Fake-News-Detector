@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signal Desk | News detector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">SD</span><span>Signal Desk</span></a>
+    <div class="status"><span class="status-dot"></span> MODEL ONLINE <span class="status-divider"></span> TF-IDF / LOGISTIC REGRESSION</div>
+    <span class="date-label">LIVE ANALYSIS</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">NLP RESEARCH CONSOLE <span>///</span> VOL. 01</p>
+        <h1>Read between<br><em>the lines.</em></h1>
+      </div>
+      <p class="intro-copy">A focused workspace for testing news claims against patterns learned from a labelled corpus. Write or paste an article to get a transparent signal in seconds.</p>
+    </section>
+
+    <section class="workspace-grid">
+      <div class="analysis-panel panel">
+        <div class="panel-heading"><div><span class="section-number">01</span><h2>Test a story</h2></div><span class="mono">INPUT / TEXT</span></div>
+        <form id="predict-form">
+          <label for="article-text">ARTICLE CONTENT</label>
+          <textarea id="article-text" placeholder="Paste a news article, headline, or claim here..." maxlength="12000"></textarea>
+          <div class="form-footer"><span id="char-count">0 / 12,000</span><button class="primary-button" type="submit"><span>Run analysis</span><span class="button-arrow">↗</span></button></div>
+        </form>
+        <div id="prediction-result" class="result hidden" aria-live="polite"></div>
+      </div>
+
+      <aside class="side-column">
+        <div class="panel signal-panel"><div class="panel-heading"><div><span class="section-number">02</span><h2>Model signal</h2></div><span class="mono">VALIDATED</span></div><div class="signal-readout"><strong id="accuracy">--</strong><span>accuracy<br>on held-out data</span></div><div class="meter"><span id="accuracy-meter"></span></div><p class="muted">The classifier learns word patterns from the project dataset, then evaluates unseen articles.</p></div>
+        <div class="panel dataset-panel"><div class="panel-heading"><div><span class="section-number">03</span><h2>Corpus pulse</h2></div><span class="mono" id="dataset-total">-- STORIES</span></div><div class="bars"><div class="bar-row"><span>REAL</span><div class="bar-track"><i id="real-bar"></i></div><b id="real-count">--</b></div><div class="bar-row"><span>FAKE</span><div class="bar-track"><i id="fake-bar"></i></div><b id="fake-count">--</b></div></div><div class="dataset-meta"><span>AVG. ARTICLE <b id="average-length">--</b> chars</span><span>VOCABULARY <b id="vocabulary">--</b> terms</span></div></div>
+      </aside>
+    </section>
+
+    <section class="lower-grid">
+      <div class="panel matrix-panel"><div class="panel-heading"><div><span class="section-number">04</span><h2>Validation matrix</h2></div><span class="mono">PREDICTED →</span></div><div class="matrix-wrap"><div class="matrix-axis">ACTUAL ↓</div><div class="matrix"><span></span><b>FAKE</b><b>REAL</b><strong>FAKE</strong><i id="matrix-00">--</i><i id="matrix-01">--</i><strong>REAL</strong><i id="matrix-10">--</i><i id="matrix-11">--</i></div></div></div>
+      <div class="panel methodology"><div class="panel-heading"><div><span class="section-number">05</span><h2>How it works</h2></div></div><ol><li><b>Vectorize</b><span>Turn language into weighted TF-IDF features.</span></li><li><b>Classify</b><span>Logistic Regression scores the story against learned patterns.</span></li><li><b>Explain</b><span>See the confidence split, not just a binary label.</span></li></ol></div>
+    </section>
+    <footer><span>SIGNAL DESK / A PYTHON ML PROJECT</span><span>USE THE SIGNAL. KEEP YOUR JUDGMENT.</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
